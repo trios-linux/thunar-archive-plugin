@@ -1,0 +1,198 @@
+thunar-archive-plugin (0.3.1-3+trios1) mia; urgency=medium
+
+  * Rebuild against xfce 4.12 for TRIOS.
+  * Bump standards to 3.9.6.
+  * debian/patches:
+    - Created 03_add_engrampa_support.patch. Adds support for Engrampa
+      archiver from Mate desktop.
+
+ -- Filip Danilovic <filip@openmailbox.org>  Mon, 13 Apr 2015 00:15:34 +0200
+
+thunar-archive-plugin (0.3.1-3) unstable; urgency=low
+
+  [ Evgeni Golov ]
+  * Correct Vcs-* URLs to point to anonscm.debian.org
+
+  [ Yves-Alexis Perez ]
+  * debian/rules:
+    - add symlink for gnome-file-roller.tap to org.gnome.FileRoller.tap,
+      should fix Thunar archive plugin with GNOME File Roller.  closes: #746504
+  * debian/control:
+    - update standards version to 3.9.5.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Tue, 24 Jun 2014 22:22:52 +0200
+
+thunar-archive-plugin (0.3.1-2) unstable; urgency=low
+
+  * debian/control:
+    - drop Recommends on squeeze until it properly supports Gio/Gvfs.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sun, 26 May 2013 16:10:14 +0200
+
+thunar-archive-plugin (0.3.1-1) unstable; urgency=low
+
+  [ Lionel Le Folgoc ]
+  * New upstream release.
+  * debian/control:
+    - drop xfce4-dev-tools, libtool and gtk-doc-tools from build-depends.
+    - bump debhelper to (>= 9).
+  * debian/patches:
+    - add missing DEP3 headers.
+    - 01_fix-missing-links.patch: dropped, included upstream.
+  * debian/rules:
+    - drop dh_auto_configure override, unneeded.
+    - enable all hardening options.
+
+  [ Yves-Alexis Perez ]
+  * debian/control:
+    - update standards version to 3.9.4.
+
+ -- Lionel Le Folgoc <mrpouit@gmail.com>  Sun, 26 May 2013 14:50:42 +0200
+
+thunar-archive-plugin (0.3.0-4) unstable; urgency=low
+
+  [ Lionel Le Folgoc ]
+  * debian/compat: use mode 9.
+  * debian/control:
+    - add myself to Uploaders.
+    - drop build-dep on hardening-includes.
+    - bump debhelper build-dep to 8.9.4 for dh9 compat mode.
+  * debian/rules:
+    - switch hardening to use dh9 mode
+    - use multi-arch path in various rules.
+  * debian/patches/02_support-non-multiarch-wrappers.patch: support wrappers
+    installed in /usr/lib/$triplet and /usr/lib, to hopefully migrate smoothly
+    t-a-p files to multiarch path over time without breakage.   Closes: #644252
+
+  [ Yves-Alexis Perez ]
+  * debian/copyright:
+    - fix copyright information for debian folder.
+    - adjust text on license location. 
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Fri, 28 Oct 2011 10:53:54 +0200
+
+thunar-archive-plugin (0.3.0-3) unstable; urgency=low
+
+  * debian/rules:
+    - pick build flags from dpkg-buildflags
+    - add -O1, -z,defs and --as-needed to LDFLAGS.
+    - run xdt-autogen before configure.
+    - add hardening flags to build flags.
+  * debian/control:
+    - add build-dep on hardening-includes.
+    - add build-dep on xfce4-dev-tools, libtool and gtk-doc-tools
+  * debian/patches:
+    - 01_fix-missing-links, fix ftbfs with --as-needed.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sat, 18 Jun 2011 23:20:35 +0200
+
+thunar-archive-plugin (0.3.0-2) unstable; urgency=low
+
+  * Upload to unstable.
+  * debian/control:
+    - remove Emanuele and Simon from uploaders, thanks to them.
+    - update standards version to 3.9.2.
+    - drop useless cdbs build-dep. 
+    - fix spelling error in long description. 
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Wed, 20 Apr 2011 12:55:58 +0200
+
+thunar-archive-plugin (0.3.0-1) experimental; urgency=low
+
+  * New upstream release:
+    - Add 7z archive support.                                   closes: #581936
+  * Switch to 3.0 (quilt) source format.
+  * debian/patches: 
+    - 01_use-correct-file-roller-args dropped, merged upstream.
+  * debian/copyright updated and switched to DEP-5 format.
+  * debian/control:
+    - add build-dep on intltool libthunarx-2-dev and libexo-1-dev, drop
+      build-dep on libthunar-vfs.
+    - update standards version to 3.9.1.
+    - update debhelper build-dep to 7.0.50~ for overrides.
+  * debian/rules:
+    - switch to debhelper 7 tiny rules.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sun, 27 Feb 2011 15:05:44 +0100
+
+thunar-archive-plugin (0.2.4-5) unstable; urgency=low
+
+  [ Evgeni Golov ]
+  * Fix Vcs-* fields, they were missing 'trunk' in the path.
+
+  [ Yves-Alexis Perez ]
+  * debian/watch edited to track Xfce archive reorganisation.
+  * debian/control:
+    - update standards version to 3.8.3.
+    - update debhelper build-dep to 7.
+    - switch to xfce section.
+  * debian/compat bumped to 7.
+  * debian/rules:
+    - ignore plugin folder in dh_makeshlibs.
+  * debian/copyright:
+    - update license information.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Wed, 11 Nov 2009 16:05:28 +0100
+
+thunar-archive-plugin (0.2.4-4) unstable; urgency=low
+
+  * debian/rules:
+    - fix build system to use libexecdir=/usr/lib and archivers scripts ends
+      in /usr/lib/thunar-archive-plugin.                        closes: #494436
+  * debian/control:
+    - update standards version to 3.8.0.
+    - remove Rudy Godoy and Martin Loschwitz from Uploaders:
+    - add version to squeeze Recommends:, to follow folder change.
+    - add ark to Recommends:.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Tue, 12 Aug 2008 21:21:29 +0200
+
+thunar-archive-plugin (0.2.4-3) unstable; urgency=low
+
+  * debian/patches: 01_use-correct-file-roller-args refreshed. 
+    Thanks Mathias Brodala.                            (really) closes: #424986
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Tue, 04 Mar 2008 21:28:16 +0100
+
+thunar-archive-plugin (0.2.4-2) unstable; urgency=low
+
+  [ Yves-Alexis Perez ]
+  * debian/control:
+    - move archivers from Depends: to Recommends:.
+    - add squeeze to archivers list.
+    - add my debian.org email address.
+    - updated standard versions to 3.7.3.
+    - relax build-dep on libthunar-vfs-1-dev to ease backports.
+  * debian/patches: 01_use-correct-file-roller-args added.      closes: #424986
+  * debian/copyright: add date and © sign.
+
+  [ Simon Huggins ]
+  * Add Vcs-* headers to debian/control
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sat, 01 Mar 2008 00:09:59 +0100
+
+thunar-archive-plugin (0.2.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Yves-Alexis Perez <corsac@corsac.net>  Sun, 29 Apr 2007 20:57:42 +0100
+
+thunar-archive-plugin (0.2.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: bumped dependencies to Thunar 0.5.0rc2.
+
+ -- Yves-Alexis Perez <corsac@corsac.net>  Thu, 16 Nov 2006 18:10:05 +0100
+
+thunar-archive-plugin (0.2.0-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/copyright: corrected license, it's only LGPL 
+
+ -- Yves-Alexis Perez <corsac@corsac.net>  Wed,  5 Jul 2006 13:48:04 +0200
+
+thunar-archive-plugin (0.1.2-1) unstable; urgency=low
+
+  * Initial release Closes: #367628
+
+ -- Yves-Alexis Perez <corsac@corsac.net>  Sat, 17 Jun 2006 14:06:52 +0100

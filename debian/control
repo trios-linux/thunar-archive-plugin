@@ -1,0 +1,18 @@
+Source: thunar-archive-plugin
+Section: xfce
+Priority: optional
+Maintainer: Filip Danilovic <filip@openmailbox.org>
+Build-Depends: debhelper (>= 9), autotools-dev, pkg-config, 
+ intltool, libthunarx-2-dev, libexo-1-dev
+Standards-Version: 3.9.6
+Vcs-Svn: svn://anonscm.debian.org/pkg-xfce/goodies/trunk/thunar-archive-plugin/
+Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-xfce/goodies/trunk/thunar-archive-plugin/
+
+Package: thunar-archive-plugin
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, thunar (>= 0.5.0rc2-1)
+Recommends: xarchiver (>= 0.3.9.2beta2-2 ) | ark |file-roller
+Description: Archive plugin for Thunar file manager
+ This plugin allows one to extract and create archive from inside the Thunar
+ file manager. At the moment it uses file-roller but will use xarchiver in the
+ future.

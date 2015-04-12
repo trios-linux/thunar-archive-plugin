@@ -1,0 +1,38 @@
+From ef6aac27a1c5d49036fa218af149eaab6c599097 Mon Sep 17 00:00:00 2001
+From: Lionel Le Folgoc <lionel@lefolgoc.net>
+Date: Tue, 11 Oct 2011 22:08:00 +0200
+Subject: Look for wrappers in {non-,}multiarch LIBEXECDIRs
+
+This will let a multiarch enabled t-a-p find wrappers installed into the old
+wrappers' directory (both /usr/lib/$triplet and /usr/lib).
+
+Forwarded: not-needed
+---
+ thunar-archive-plugin/tap-backend.c |   11 +++++++++++
+ 1 files changed, 11 insertions(+), 0 deletions(-)
+
+diff --git a/thunar-archive-plugin/tap-backend.c b/thunar-archive-plugin/tap-backend.c
+index ebe379c..012bda9 100644
+--- a/thunar-archive-plugin/tap-backend.c
++++ b/thunar-archive-plugin/tap-backend.c
+@@ -377,6 +377,17 @@ tap_backend_mime_wrapper (GAppInfo *mime_application)
+       filename = NULL;
+     }
+ 
++  /* Try to find wrappers in non-multiarch LIBEXECDIR */
++  if (filename == NULL)
++    {
++      filename = g_strdup_printf ("/usr/lib/thunar-archive-plugin" G_DIR_SEPARATOR_S "%s.tap", base_name);
++      if (!g_file_test (filename, G_FILE_TEST_IS_EXECUTABLE))
++        {
++          g_free (filename);
++          filename = NULL;
++        }
++    }
++
+   /* cleanup */
+   g_free (base_name);
+ 
+-- 
+1.7.7
+
