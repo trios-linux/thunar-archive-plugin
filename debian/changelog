@@ -1,3 +1,11 @@
+thunar-archive-plugin (0.3.1-3+trios2) mia; urgency=medium
+
+  * Version bump, to allow upgrade from backports repo.
+  * quilt/series:
+    - Add trailing new line, fixes lintian warning.
+
+ -- Filip Danilovic <filip@openmailbox.org>  Mon, 13 Apr 2015 00:26:34 +0200
+
 thunar-archive-plugin (0.3.1-3+trios1) mia; urgency=medium
 
   * Rebuild against xfce 4.12 for TRIOS.
